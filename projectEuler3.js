@@ -18,16 +18,17 @@ let prime = function (number) {
     }
     return true;
   }
-}
+};
 
 let largestPrime = function (number) {
-  let primes = [];
-  for (let div = 1; div < Math.sqrt(number); div += 2) { // sqrt the number so it will have less iterations
-    if (number % div === 0 && prime(div) === true) {
-      primes.push(div);
+  let primeNum;
+  for (let div = 1; div < Math.sqrt(number); div += 2) {
+    // sqrt the number so it will have less iterations
+    if (number % div === 0 && prime(div)) {
+      primeNum = div;
     }
   }
-  return primes[primes.length - 1]; // return last ele in primes array which would be the largest
-}
+  return primeNum;
+};
 
 console.log(largestPrime(600851475143));

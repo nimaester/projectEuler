@@ -13,31 +13,29 @@ let prime = function (num) {
   if (num < 2) {
     return false;
   }
-  for (let i = 2; i < num; i ++) {
+  for (let i = 2; i < num; i++) {
     if (num % i === 0) {
       return false;
     }
   }
   return true;
-}
+};
 
 let nthPrime = function () {
-
-  let target = 10001
-  let counter = 0
-  let num = 1
+  let num = 1;
+  let target = 10001;
+  let counter = 0;
 
   while (counter < target) {
     if (prime(num)) {
-      counter += 1
+      counter++;
+      if (counter === target) {
+        return num;
+      }
     }
-    if (counter !== target) {
-      num += 1;
-    }
+    num++;
   }
-  return num
-}
+};
 
-console.log(nthPrime()) // 103743
+console.log(nthPrime()); // 103743
 console.log(prime(2)); // true
-

@@ -2,25 +2,22 @@
 
 // Find the largest palindrome made from the product of two 3-digit numbers.
 
-let largestPalindromeNumber = function () {
-
-  let firstNum = 999;
-  let secondNum = 999;
-  let largestPalindrome = 0
-
-  for (let i = firstNum; i > 0; i --) {
-    for (let j = secondNum; j > 0; j --) {
-      // this will reverse a number by changing it to a string, split, reverse the order then join then set it back to a number
-      let reversedProduct = Number(String(i * j).split('').reverse().join(''));
+const largestPalindromeNumber = () => {
+  let largest = 0;
+  for (let i = 999; i !== 0; i--) {
+    for (let j = 999; j !== 0; j--) {
       let product = i * j;
-      if (product === reversedProduct && product > largestPalindrome) {
-        largestPalindrome = product;
+      let stringProduct = String(product);
+      let reveseProduct = String(i * j)
+        .split("")
+        .reverse()
+        .join("");
+      if (stringProduct === reveseProduct && product > largest) {
+        largest = product;
       }
     }
   }
-  return largestPalindrome
-}
+  return largest;
+};
 
-console.log(largestPalindromeNumber()) //906609
-
-// console.log((String(995).split('').reverse().join('')))
+console.log(largestPalindromeNumber()); //906609

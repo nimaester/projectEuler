@@ -8,21 +8,15 @@
 
 // Find the difference between the sum of the squares of the first one hundred natural numbers and the square of the sum.
 
-let sumOfSquares = function (limit) {
-  let total = 0;
-  for (let i = 1; i <= limit; i ++) {
-    total += i ** 2;
+const sumOfSquaresDifference = () => {
+  let sumOfSquares = 0;
+  let squareOfSum = 0;
+  for (let i = 1; i <= 100; i++) {
+    sumOfSquares += i ** 2;
+    squareOfSum += i;
   }
-  return total;
 
+  return squareOfSum ** 2 - sumOfSquares;
 };
 
-let squareOfSum = function (limit) {
-  let total = 0;
-  for (let i = 1; i <= limit; i += 1) {
-    total += i;
-  }
-  return total ** 2;
-};
-
-console.log(squareOfSum(100) - sumOfSquares(100)) // 25164150
+console.log(sumOfSquaresDifference());

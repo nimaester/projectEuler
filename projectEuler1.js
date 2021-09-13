@@ -2,18 +2,16 @@
 
 // Find the sum of all the multiples of 3 or 5 below 1000.
 
-const sumMultiplesOf = () => {
-
-  let total = 0;
-  let number = 3;
-
-  while (number < 1000) {
-    if (number % 3 === 0 || number % 5 === 0) {
-      total += number;
+const multiples = () => {
+  let sum = 0;
+  let i = 0;
+  while (i < 1000) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i;
     }
-    number += 1;
+    i++;
   }
-  return total;
-}
+  return sum;
+};
 
-console.log(sumMultiplesOf()) // 233168
+console.log(multiples());
