@@ -6,41 +6,30 @@
 // maybe make it quicker by getting a list of prime numbers and adding them all together using reduce?
 // added '&& num % 2 === 0' on first if statement on isPrime, returns a little bit quicker than without
 // most optimized is start at 3 and i += 2 each iteration instead of i ++
-
-
-
-const isPrime = function (num) {
-  if (num < 2 && num % 2 === 0) { return false; }
-  for (let i = 3; i <= Math.floor(Math.sqrt(num)); i += 2) {
-    if (num % i === 0) { return false; }
+const isPrime = (num) => {
+  var sqrtnum = Math.floor(Math.sqrt(num));
+  var prime = num != 1;
+  for (var i = 2; i < sqrtnum + 1; i++) {
+    // sqrtnum+1
+    if (num % i == 0) {
+      prime = false;
+      break;
+    }
   }
-  return true;
+  return prime;
 };
 
-const sumOfPrimes = function (target) {
-
-  // method 1
+const sumOfPrimes = (target) => {
   let sum = 0;
-  for (let div = 3; div < target; div +=2 ) {
-    if (isPrime(div)) { sum += div; }
+  let prime = 2;
+  while (prime < target) {
+    if (isPrime(prime)) {
+      // console.log(isPrime(prime));
+      sum += prime;
+    }
+    prime += 1;
   }
   return sum;
+};
 
-
-  //method 2
-  // let primes = [];
-  // let div =  3;
-  // while (div < target) {
-  //   if (isPrime(div)) {
-  //     primes.push(div);
-  //   }
-  //   div += 2;
-  // }
-  // return primes.reduce((a, b) => (a + b))
-}
-
-console.log(sumOfPrimes(2000000))  // 142913828922
-
-// start = performance.now();
-// sumOfPrimes(2000000);
-// end = performance.now();
+console.log(sumOfPrimes(2000000)); // 142913828922

@@ -15,6 +15,21 @@
 
 // What is the value of the first triangle number to have over five hundred divisors?
 
-const firstTriangleNumber = () => {
+const divisors = (num) => {
+  let numOfDivisor = 0;
+  let divisor = 1;
 
-}
+  while (divisor <= num) {
+    if (num % divisor === 0) {
+      numOfDivisor++;
+    }
+    divisor++;
+  }
+  return numOfDivisor;
+};
+
+// console.log(divisors(28));
+
+const firstTriangleNumber = () => {};
+
+console.log(firstTriangleNumber());
